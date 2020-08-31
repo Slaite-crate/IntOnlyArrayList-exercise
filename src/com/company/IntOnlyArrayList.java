@@ -52,6 +52,24 @@ public class IntOnlyArrayList {
         }
     }
 
+    public void add(int index, int value){
+        if (intArrayList == null || intArrayList.length == 0 || intArrayList.length <= index){
+            System.out.println("couldn't add");
+        } else {
+            int[] list = new int[intArrayList.length+1];
+            int j = 0;
+            for (int i = 0; i < list.length; i++){
+                if (i == index){
+                    list[i] = value;
+                    i++;
+                }
+                list[i] = intArrayList[j];
+                j++;
+            }
+            intArrayList = list;
+        }
+    }
+
     @Override
     public String toString(){
         if (intArrayList == null || intArrayList.length == 0) {

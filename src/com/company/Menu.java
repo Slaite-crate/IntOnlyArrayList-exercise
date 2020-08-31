@@ -26,6 +26,11 @@ public class Menu {
             if (tal == 4){
                 System.out.println(AL.size());
             }
+            if (tal == 5){
+                int index = sc.nextInt();
+                int value = sc.nextInt();
+                AL.add(index,value);
+            }
             System.out.println(AL);
         }
     }
@@ -35,6 +40,7 @@ public class Menu {
         System.out.println("2: get");
         System.out.println("3: remove");
         System.out.println("4: size");
+        System.out.println("5: add(index, value)");
     }
 }
 
