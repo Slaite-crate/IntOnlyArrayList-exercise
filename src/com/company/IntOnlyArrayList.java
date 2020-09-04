@@ -53,13 +53,11 @@ public class IntOnlyArrayList {
     }
 
     public void add(int index, int value){
-        if (intArrayList == null || intArrayList.length == 0 || intArrayList.length <= index){
-            System.out.println("couldn't add");
-        } else {
-            int[] list = new int[intArrayList.length+1];
+        try {
+            int[] list = new int[intArrayList.length + 1];
             int j = 0;
-            for (int i = 0; i < list.length; i++){
-                if (i == index){
+            for (int i = 0; i < list.length; i++) {
+                if (i == index) {
                     list[i] = value;
                     i++;
                 }
@@ -67,6 +65,8 @@ public class IntOnlyArrayList {
                 j++;
             }
             intArrayList = list;
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println(e);
         }
     }
 
