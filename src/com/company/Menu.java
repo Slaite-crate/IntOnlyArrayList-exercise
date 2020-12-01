@@ -6,9 +6,9 @@ public class Menu {
     private IntOnlyArrayList AL;
 
     public Menu(){
-        AL = new IntOnlyArrayList();
     }
 
+    /*
     public void starts(){
         boolean go = true;
         while (go){
@@ -38,6 +38,7 @@ public class Menu {
             System.out.println(AL);
         }
     }
+     */
 
     private void menu(){
         System.out.println("1: add");
@@ -47,12 +48,5 @@ public class Menu {
         System.out.println("5: add(index, value)");
     }
 
-    public long hello(int x){
-        long startTid = System.currentTimeMillis();
-        for (int i = 0; i < x; i++){
-            AL.add(i);
-        }
-        return System.currentTimeMillis() - startTid;
-    }
 }
 

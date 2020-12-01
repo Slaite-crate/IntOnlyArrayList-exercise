@@ -2,40 +2,30 @@ package com.company;
 
 public class Main {
 
-    private static Menu menu;
+    private static IntOnlyArrayList AL;
 
     public static void main(String[] args) {
-        menu = new Menu();
-        System.out.print("10 ");
-        hello(10);
-        System.out.print("50 ");
-        hello(50);
-        System.out.print("100 ");
-        hello(100);
-        System.out.print("500 ");
-        hello(500);
-        System.out.print("1000 ");
-        hello(1000);
-        System.out.print("2000 ");
-        hello(2000);
-        System.out.print("4000 ");
-        hello(4000);
-        System.out.print("6000 ");
-        hello(6000);
-        System.out.print("8000 ");
-        hello(8000);
-        System.out.print("10000 ");
-        hello(10000);
-        System.out.print("15000 ");
-        hello(15000);
+        int[] arrayLength = {10,20,50,100,500,1000,5000,10000,20000,50000,100000};
+        int loops = 20;
+        for (int length : arrayLength){
+            System.out.println("array længde: " + length + "    tid: " + averageTimeForArray(length,loops) + "ms");
+        }
     }
 
-    public static void hello(int x){
-        long twenty = 0;
-        for (int i = 0; i < 20; i++){
-            twenty += menu.hello(x);
+    public static long averageTimeForArray(int length, int loops){
+        long time = 0;
+        for (int i = 0; i < loops; i++){
+            time += timeForArray(length);
         }
-        twenty = twenty/20;
-        System.out.println("tid: " + twenty + " ms");
+        return time/loops;
+    }
+
+    public static long timeForArray(int length){
+        AL = new IntOnlyArrayList();
+        long startTid = System.currentTimeMillis();
+        for (int i = 0; i < length; i++){
+            AL.add(i);
+        }
+        return (System.currentTimeMillis() - startTid);
     }
 }
