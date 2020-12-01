@@ -3,9 +3,13 @@ package com.company;
 import java.util.Scanner;
 
 public class Menu {
+    private IntOnlyArrayList AL;
 
     public Menu(){
-        IntOnlyArrayList AL = new IntOnlyArrayList();
+        AL = new IntOnlyArrayList();
+    }
+
+    public void starts(){
         boolean go = true;
         while (go){
             menu();
@@ -41,6 +45,14 @@ public class Menu {
         System.out.println("3: remove");
         System.out.println("4: size");
         System.out.println("5: add(index, value)");
+    }
+
+    public long hello(int x){
+        long startTid = System.currentTimeMillis();
+        for (int i = 0; i < x; i++){
+            AL.add(i);
+        }
+        return System.currentTimeMillis() - startTid;
     }
 }
 
